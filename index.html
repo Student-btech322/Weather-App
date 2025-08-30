@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="weather-container bg-white p-6 md:p-8 rounded-2xl shadow-2xl w-11/12 max-w-md">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Weather App</h1>
+
+        <form id="location-form" class="flex items-center mb-6">
+            <input type="text" id="location-input" class="flex-grow p-3 border-2 border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-shadow" placeholder="Enter a city name..." required>
+            <button type="submit" id="submit-btn" class="bg-indigo-600 text-white p-3 rounded-r-lg font-semibold hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+        </form>
+
+        <div id="loader" class="hidden text-center my-8">
+                <div class="spinner"></div>
+                <p class="text-gray-500 mt-2">Fetching weather...</p>
+        </div>
+
+        <div id="error-container" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-6" role="alert">
+            <strong class="font-bold">Error:</strong>
+            <span class="block sm:inline" id="error-message">Something went wrong.</span>
+        </div>
+
+        <div id="weather-display" class="hidden text-center">
+            <h2 id="city-name" class="text-4xl font-bold text-gray-900">City Name</h2>
+            <div class="flex items-center justify-center my-4">
+                <img id="weather-icon" src="https://placehold.co/100x100/e2e8f0/e2e8f0" alt="Weather Icon" class="w-24 h-24">
+                <p id="temperature" class="text-6xl font-bold text-gray-900 ml-4">0°C</p>
+            </div>
+            <p id="weather-description" class="text-2xl text-gray-700 capitalize">Description</p>
+            <div class="flex justify-center text-lg mt-2">
+                <p class="mx-2">Min: <span id="temp-min"></span></p>
+                <p class="mx-2">Max: <span id="temp-max"></span></p>
+            </div>
+
+            <div id="additional-details" class="grid grid-cols-2 gap-4 mt-6 text-gray-700">
+                <div class="detail-item">
+                    <p class="font-bold">Humidity:</p>
+                    <p id="humidity"></p>
+                </div>
+                <div class="detail-item">
+                    <p class="font-bold">Wind Speed:</p>
+                    <p id="wind-speed"></p>
+                </div>
+                <div class="detail-item">
+                    <p class="font-bold">Cloudiness:</p>
+                    <p id="cloudiness"></p>
+                </div>
+                <div class="detail-item">
+                    <p class="font-bold">Pressure:</p>
+                    <p id="pressure"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+</body>
+</html>
